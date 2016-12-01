@@ -11,10 +11,33 @@
 <div id="open">
     打开
 </div>
-<a href="vc://www.oschina.net/launch/app?type=6&amp;id=79515">link open open  open  open  </a>
+<a href="vc://www.oschina.net/launch/app?type=6&amp;id=79515">link open open open open </a>
+
 <script>
-    document.getElementById('open').onclick = function(){
+    alert(navigator.userAgent);
+    document.getElementById('open').onclick = function () {
         window.location.href = 'vc://www.oschina.net/launch/app?type=6&amp;id=79515'
+    }
+
+
+    var client = {
+        versions: function () {
+            var u = navigator.userAgent;
+            return {
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+            }
+        }()
+    }
+</script>
+<script type="text/javascript">
+    var u = navigator.userAgent, app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid) {
+        alert("是安卓");
+    } else if (isiOS) {
+        alert("是苹果");
     }
 </script>
 </body>
