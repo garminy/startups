@@ -9,7 +9,7 @@ var banner = {
             if (banner_index < 0) {
                 window.timer = null;
                 clearInterval(window.timer);
-                document.addEventListener('mousedown', _this.down, false);
+                // document.addEventListener('mousedown', _this.down, false);
                 return;
             }
             var yDeg = 360 / banner_l * banner_index; //逆时针出现
