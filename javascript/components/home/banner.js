@@ -20,7 +20,7 @@ var banner = {
         this.rotateYDeg = 0; //记录水平旋转角度，方便左右切换
     },
     hRotateAnimate: function (hDirection) { //水平旋转
-        div1.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(-18deg)';
+        div1.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(-14deg)';
         var banner_l = banners.length;
         this.rotateYDeg += hDirection * this.rotateScale;
         for (var i = 0; i < banner_l; i++) {
@@ -34,7 +34,7 @@ var banner = {
 
         if (!this.rotate) {
             this.rotate = {
-                x: -18,
+                x: -14,
                 y: banner.rotateYDeg || 0
             };
         }
@@ -75,7 +75,7 @@ var bannerEle = document.getElementById('banner-area');
 var banners = bannerEle.getElementsByClassName('banner-unit');
 window.onresize = function () {
     bannerEle.style.height = window.innerHeight + 'px';
-}
+};
 bannerEle.style.height = window.innerHeight + 'px';
 
 banner.initAnimate();
