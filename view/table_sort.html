@@ -21,40 +21,8 @@
         <tbody></tbody>
     </table>
 </div>
+<script src="../javascript/libs/toolAjax.js"></script>
 <script>
-    var tool_ajax = {
-        getXHR: function () {
-            if (window.XMLHttpRequest) {
-                this.getXHR = function () {
-                    return new XMLHttpRequest();
-                };
-                return new XMLHttpRequest();
-            }
-            this.getXHR = function () {
-                return new ActiveXObject('Microsoft.XMLHTTP');
-            };
-            return new ActiveXObject('Microsoft.XMLHTTP');
-        },
-        toJson: function (dataStr) {
-            if (window.JSON) {
-                return JSON.parse(dataStr);
-            }
-            return eval('(' + dataStr + ')');
-        },
-        ajax: function (url, callback) {
-            var _this = this;
-            var xhr = _this.getXHR();
-            xhr.open('get', url, 'async');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && /^2\d{2}$/.test(xhr.status)) {
-                    var data = _this.toJson(xhr.responseText);
-                    callback(data);
-                }
-            };
-            xhr.send();
-        }
-    };
-
     var tool_sort = {
         data_index: {name: 0, age: 1, score: 2, sex: 3},
         init_data: function (data) {
@@ -102,7 +70,7 @@
         }
     };
 
-    tool_ajax.ajax('../public/json/sort_data.txt', function (data) {
+    toolAjax.ajax('../public/json/sort_data.txt', function (data) {
         console.log(data);
         tool_sort.init_data(data);
     });
