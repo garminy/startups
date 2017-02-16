@@ -1,10 +1,10 @@
 body {
-  background: url("../../public/images/bg1_2.jpg") no-repeat;
+  background: url("../../public/images/earth_bg2.jpg") no-repeat;
   background-size: cover; }
 
-#banner-area {
+#banner_area {
   position: relative; }
-  #banner-area #div1 {
+  #banner_area #banner_list {
     width: 200px;
     height: 200px;
     position: relative;
@@ -13,17 +13,17 @@ body {
     transform-style: preserve-3d;
     transition: all 1s;
     transform: perspective(1000px) rotateY(0deg) rotateX(-14deg); }
-    #banner-area #div1 .bg {
+    #banner_area #banner_list .bg {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 1800px;
-      height: 1800px;
+      width: 1200px;
+      height: 1200px;
       margin-top: -600px;
       margin-left: -600px;
       transform: rotateX(90deg) translateZ(-20px);
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 75%); }
-    #banner-area #div1 .banner-unit {
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 75%); }
+    #banner_area #banner_list .banner_unit {
       position: absolute;
       left: 50%;
       /* box-shadow: 0 0 5px #595959; */
@@ -32,19 +32,19 @@ body {
       margin: -60px 0 0 -65px;
       transition: all 1s;
       transform: rotateY(0deg) translateZ(0px); }
-      #banner-area #div1 .banner-unit a {
+      #banner_area #banner_list .banner_unit a {
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
         background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.16) 100%);
         border-radius: 10px;
-        -webkit-box-reflect: below 10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(1%, transparent), to(rgba(250, 250, 250, 0.1)));
+        -webkit-box-reflect: below 10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(1%, transparent), to(rgba(250, 250, 250, 0.3)));
         transform: scale(1, 1);
         transition: all 1s; }
-        #banner-area #div1 .banner-unit a:hover {
+        #banner_area #banner_list .banner_unit a:hover {
           transform: scale(1.2, 1.2); }
-  #banner-area ul.btn li {
+  #banner_area ul.btn li {
     background: rgba(255, 255, 255, 0.8);
     font-size: 50px;
     padding: 30px 14px;
@@ -54,9 +54,9 @@ body {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%); }
-    #banner-area ul.btn li:first-child {
+    #banner_area ul.btn li:first-child {
       left: 50px; }
-    #banner-area ul.btn li:last-child {
+    #banner_area ul.btn li:last-child {
       right: 50px; }
 
 /*# sourceMappingURL=banner.css.map */

@@ -1,0 +1,105 @@
+body {
+  background: url("../../public/images/bg3_1.jpg") no-repeat;
+  background-size: cover;
+  background-position: center top;
+  font-size: 14px;
+  color: #3c3c3c; }
+
+.box {
+  width: 800px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 50px 25px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
+  .box::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url("../../public/images/bg3_1.jpg") no-repeat;
+    background-size: 150%;
+    background-position: center top;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -ms-filter: blur(10px);
+    -moz-filter: blur(10px); }
+  .box .title {
+    font-size: 22px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    line-height: 3em; }
+  .box table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: collapse;
+    color: #fff; }
+    .box table td, .box table th {
+      line-height: 30px; }
+    .box table thead {
+      background: #00a0ff;
+      line-height: 36px;
+      font-size: 16px;
+      color: #fff;
+      font-weight: normal; }
+    .box table tbody tr:nth-child(even) {
+      background: rgba(237, 245, 253, 0.3); }
+  .box #pagination {
+    line-height: 28px;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    -webkit-user-select: none; }
+    .box #pagination .link {
+      display: inline-block;
+      padding: 0 15px;
+      background: rgba(237, 245, 253, 0.6);
+      cursor: pointer; }
+    .box #pagination #page_num {
+      display: inline-block; }
+      .box #pagination #page_num span {
+        display: inline-block;
+        padding: 0 15px;
+        background: rgba(237, 245, 253, 0.3);
+        cursor: pointer;
+        margin: 0 5px;
+        transition: all .4s ease-in;
+        -webkit-transition: all .4s ease-in;
+        -moz-transition: all .4s ease-in;
+        -ms-transition: all .4s ease-in; }
+        .box #pagination #page_num span.active {
+          background: #00a0ff;
+          color: #fff; }
+    .box #pagination .goto {
+      padding-top: 10px; }
+      .box #pagination .goto input {
+        width: 50px;
+        padding: 0;
+        background: #fff;
+        border: none;
+        line-height: 24px;
+        height: 24px;
+        margin: 0 5px; }
+      .box #pagination .goto button {
+        border: none;
+        background: #00a0ff;
+        color: #fff;
+        padding: 0 10px;
+        line-height: 24px;
+        border-radius: 6px; }
+
+/*# sourceMappingURL=table.css.map */

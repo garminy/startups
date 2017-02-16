@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/table/table.css">
     <style>
         .active {
             background: #f00;
@@ -14,17 +15,18 @@
 </head>
 <body>
 <div class="box">
+    <div class="title"> 原生JS 实现 ajax 分页器 </div>
     <table id="table">
         <thead></thead>
         <tbody></tbody>
     </table>
     <div id="pagination">
-        <div id="prev">prev</div>
-        <div id="first">first</div>
+        <div class="link" id="prev">prev</div>
+        <div class="link" id="first">first</div>
         <div id="page_num"></div>
-        <div id="last">last</div>
-        <div id="next">next</div>
-        <div>跳转到第<input type="text" id="goToPage">页
+        <div class="link" id="last">last</div>
+        <div class="link" id="next">next</div>
+        <div class="goto">跳转到第<input type="text" id="goToPage">页
             <button>确定</button>
         </div>
     </div>
@@ -135,7 +137,7 @@
             e = e || window.event;
             var target = e.target || e.srcElement;
             if (target.id == 'prev') {
-                _this.current_page = (_this.current_page > 1) ? _this.current_page - 1 : _this.current_page
+                _this.current_page = (_this.current_page > 1) ? parseInt(_this.current_page) - 1 : _this.current_page
             } else if (target.id == 'first') {
                 _this.current_page = 1;
 
@@ -143,7 +145,7 @@
                 _this.current_page = _this.total_page;
 
             } else if (target.id == 'next') {
-                _this.current_page = (_this.current_page < _this.total_page) ? _this.current_page + 1 : _this.current_page
+                _this.current_page = (_this.current_page < _this.total_page) ? parseInt(_this.current_page) + 1 : _this.current_page
 
             } else if (target.tagName.toLowerCase() == 'span') {
                 _this.current_page = target.innerHTML;
@@ -151,6 +153,8 @@
             else if (target.tagName.toLowerCase() == 'button') {
                 _this.goToNumber(goToPage.value);
             }
+
+            console.log(_this.current_page);
             toolPage.loadData(data, this.current_page);
             toolPage.selectedPage();
         };
