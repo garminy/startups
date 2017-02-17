@@ -2,12 +2,12 @@ var banner = {
     initDom: function () {
         var _this = this;
         var banner_box = document.getElementById('banner_list');
-        toolAjax.ajax('public/json/banner.json', function (data) {
+        toolAjax.ajax('../public/json/banner.json', function (data) {
             var fragment = document.createDocumentFragment();
             for (var i = 0; i < data.length; i++) {
                 var banner = document.createElement('div');
                 banner.className = 'banner_unit';
-                banner.innerHTML = '<a href = ' + data[i].url + '>' + data[i].title + '</a>';
+                banner.innerHTML = '<div class="img" style="background-image: url(' + data[i].url + ')"></div>';
                 fragment.appendChild(banner);
             }
             banner_box.appendChild(fragment);
@@ -39,7 +39,7 @@ var banner = {
             if (banner_index < 0) {
                 window.timer = null;
                 clearInterval(window.timer);
-                // document.addEventListener('mousedown', _this.down, false);
+                document.addEventListener('mousedown', _this.down, false);
                 return;
             }
             var yDeg = 360 / banner_l * banner_index; //逆时针出现
