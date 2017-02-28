@@ -1,0 +1,97 @@
+.progress_wrapper {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  position: relative; }
+  .progress_wrapper .wrapper {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden; }
+    .progress_wrapper .wrapper .progress {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      top: 0;
+      border: 20px solid transparent;
+      border-radius: 50%;
+      -webkit-transform: rotate(-135deg); }
+      .progress_wrapper .wrapper .progress.rightcircle {
+        right: 0;
+        border-right: 20px solid #f0f;
+        border-top: 20px solid #f0f;
+        transition: all .6s linear; }
+      .progress_wrapper .wrapper .progress.leftcircle {
+        left: 0;
+        border-left: 20px solid #f90;
+        border-bottom: 20px solid #f90;
+        transition: all .6s linear .6s; }
+    .progress_wrapper .wrapper.right {
+      right: 0; }
+    .progress_wrapper .wrapper.left {
+      left: 0; }
+  .progress_wrapper.lt_half .rightcircle {
+    -webkit-transform: rotate(-45deg); }
+  .progress_wrapper.gt_half .rightcircle {
+    -webkit-transform: rotate(45deg); }
+  .progress_wrapper.gt_half .leftcircle {
+    -webkit-transform: rotate(-45deg); }
+
+.progress_wrapper:nth-child(1) .wrapper .progress.rightcircle {
+  border-right: 20px solid #479bce;
+  border-top: 20px solid #479bce; }
+.progress_wrapper:nth-child(1) .wrapper .progress.leftcircle {
+  border-left: 20px solid #479bce;
+  border-bottom: 20px solid #479bce; }
+
+.progress_wrapper:nth-child(2) .wrapper .progress.rightcircle {
+  border-right: 20px solid #55a0ce;
+  border-top: 20px solid #55a0ce; }
+.progress_wrapper:nth-child(2) .wrapper .progress.leftcircle {
+  border-left: 20px solid #55a0ce;
+  border-bottom: 20px solid #55a0ce; }
+
+.progress_wrapper:nth-child(3) .wrapper .progress.rightcircle {
+  border-right: 20px solid #59a7ce;
+  border-top: 20px solid #59a7ce; }
+.progress_wrapper:nth-child(3) .wrapper .progress.leftcircle {
+  border-left: 20px solid #59a7ce;
+  border-bottom: 20px solid #59a7ce; }
+
+.progress_wrapper:nth-child(4) .wrapper .progress.rightcircle {
+  border-right: 20px solid #6db8ce;
+  border-top: 20px solid #6db8ce; }
+.progress_wrapper:nth-child(4) .wrapper .progress.leftcircle {
+  border-left: 20px solid #6db8ce;
+  border-bottom: 20px solid #6db8ce; }
+
+.progress_wrapper:nth-child(5) .wrapper .progress.rightcircle {
+  border-right: 20px solid #6db8ce;
+  border-top: 20px solid #6db8ce; }
+.progress_wrapper:nth-child(5) .wrapper .progress.leftcircle {
+  border-left: 20px solid #6db8ce;
+  border-bottom: 20px solid #6db8ce; }
+
+.progress_wrapper:nth-child(6) .wrapper .progress.rightcircle {
+  border-right: 20px solid #7cbbce;
+  border-top: 20px solid #7cbbce; }
+.progress_wrapper:nth-child(6) .wrapper .progress.leftcircle {
+  border-left: 20px solid #7cbbce;
+  border-bottom: 20px solid #7cbbce; }
+
+.progress_wrapper:nth-child(7) .wrapper .progress.rightcircle {
+  border-right: 20px solid #93c2ce;
+  border-top: 20px solid #93c2ce; }
+.progress_wrapper:nth-child(7) .wrapper .progress.leftcircle {
+  border-left: 20px solid #93c2ce;
+  border-bottom: 20px solid #93c2ce; }
+
+.progress_wrapper:nth-child(8) .wrapper .progress.rightcircle {
+  border-right: 20px solid #93c2ce;
+  border-top: 20px solid #93c2ce; }
+.progress_wrapper:nth-child(8) .wrapper .progress.leftcircle {
+  border-left: 20px solid #93c2ce;
+  border-bottom: 20px solid #93c2ce; }
+
+/*# sourceMappingURL=style.css.map */

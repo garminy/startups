@@ -1,0 +1,84 @@
+.load_page {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  .side_top {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    height: 50%;
+    background: url(../../public/images/home/loading_bg_top.jpg) no-repeat left bottom;
+    background-size: cover;
+    transition: all .8s ease-in .3s;
+    -webkit-transition: all .8s ease-in .3s;
+    .title {
+      text-align: center;
+      font-size: 52px;
+      position: relative;
+      top: 25%;
+      color: #fff;
+      text-shadow: 2px 2px 4px #fa0;
+    }
+    .button {
+      min-width: 110px;
+      display: none;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 16px;
+      color: #fff;
+      -webkit-border-radius: 50px;
+      background: #fa0;
+      -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(2%, transparent), color-stop(80%, rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.5)));
+      cursor: pointer;
+      transition: all .4s ease-in;
+      -webkit-transition: all .4s ease-in;
+      position: absolute;
+      bottom: 50px;
+      right: 300px;
+      &:hover {
+        background: #f90;
+      }
+    }
+  }
+  .side_bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 50%;
+    background: url(../../public/images/home/loading_bg_bottom.jpg) no-repeat left top;
+    background-size: cover;
+    transition: all .8s ease-in .3s;
+    -webkit-transition: all .8s ease-in .3s;
+  }
+  .loading_line {
+    position: absolute;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width: 10px;
+    background: #f90;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    border-radius: 0 20px 20px 0;
+  }
+  &.finish {
+    .side_top {
+      bottom: 150%;
+    }
+    .side_bottom {
+      top: 150%;
+    }
+    .loading_line {
+      opacity: 0;
+    }
+  }
+}

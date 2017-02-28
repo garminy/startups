@@ -1,0 +1,71 @@
+@mixin percentage_ball{
+  $colorList: (#479bce, #55a0ce, #59a7ce, #6db8ce, #6db8ce, #7cbbce, #93c2ce, #93c2ce);
+  @for $i from 1 to 9{
+    .progress_wrapper:nth-child(#{$i}) .wrapper .progress{
+      &.rightcircle{
+        border-right: 20px solid nth($colorList, $i);
+        border-top: 20px solid nth($colorList, $i);
+      }
+      &.leftcircle {
+        border-left: 20px solid nth($colorList, $i);
+        border-bottom: 20px solid nth($colorList, $i);
+      }
+    }
+  }
+}
+
+.progress_wrapper {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  position: relative;
+  .wrapper {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    .progress {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      top: 0;
+      border: 20px solid transparent;
+      border-radius: 50%;
+      -webkit-transform: rotate(-135deg);
+      &.rightcircle {
+        right: 0;
+        border-right: 20px solid #f0f;
+        border-top: 20px solid #f0f;
+        transition: all .6s linear;
+      }
+      &.leftcircle {
+        left: 0;
+        border-left: 20px solid #f90;
+        border-bottom: 20px solid #f90;
+        transition: all .6s linear .6s;
+      }
+    }
+    &.right {
+      right: 0;
+    }
+    &.left {
+      left: 0;
+    }
+  }
+  &.lt_half {
+    .rightcircle {
+      -webkit-transform: rotate(-45deg);
+    }
+  }
+  &.gt_half {
+    .rightcircle {
+      -webkit-transform: rotate(45deg);
+    }
+    .leftcircle {
+      -webkit-transform: rotate(-45deg);
+    }
+  }
+}
+
+@include percentage_ball;
