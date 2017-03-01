@@ -1,0 +1,42 @@
+.me_model {
+  background: rgba(253, 209, 177, 0.2);
+  position: relative; }
+
+@media screen and (min-width: 769px) {
+  .me_model {
+    margin-top: 50px;
+    position: relative;
+    font-size: 14px;
+    color: #6c6c6c; }
+    .me_model ul {
+      padding-bottom: 40px;
+      display: inline-block; }
+      .me_model ul li {
+        width: 300px;
+        margin: 4px;
+        line-height: 2em; }
+        .me_model ul li .title {
+          padding-left: 10px; }
+    .me_model .content {
+      position: absolute;
+      left: 320px;
+      top: 136px;
+      right: 30px;
+      line-height: 2em; } }
+@media screen and (max-width: 768px) {
+  .me_model {
+    margin-top: 17vw; }
+    .me_model ul {
+      text-align: center; }
+      .me_model ul li {
+        line-height: 2em;
+        font-size: 1.6rem;
+        color: #6c6c6c; }
+        .me_model ul li .title {
+          padding-left: 1rem; }
+    .me_model .content {
+      padding: 1rem 2rem 3rem;
+      font-size: 1.6rem;
+      color: #9c9c9c; } }
+
+/*# sourceMappingURL=about_me.css.map */

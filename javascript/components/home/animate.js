@@ -49,20 +49,32 @@ var homeJs = {
         }
         navEles[index].className = 'active';
 
-        var lineLeftValue = ele.offsetLeft;
-        var lineWidthValue = ele.clientWidth;
-        var line = document.getElementsByTagName('nav')[0].getElementsByClassName('line')[0];
-        line.style.left = lineLeftValue + 'px';
-        line.style.width = lineWidthValue + 'px';
+        // var lineLeftValue = ele.offsetLeft;
+        // var lineWidthValue = ele.clientWidth;
+        // var line = document.getElementsByTagName('nav')[0].getElementsByClassName('line')[0];
+        // line.style.left = lineLeftValue + 'px';
+        // line.style.width = lineWidthValue + 'px';
     },
     initSkills: function (url) {
         toolAjax.ajax(url, function (res) {
-            var skillList = document.getElementById('skill_model');
+            var skillList = document.getElementById('skill_list');
             var fragment = document.createDocumentFragment();
             for (var i = 0; i < res.length; i++) {
+                var bar = document.createElement('div');
+                bar.className = "bar";
+                var deviceW = document.documentElement.clientWidth || document.body.clientWidth;
+                //设置百分比
+                if(deviceW <= 768 ){
+                    bar.style.width = res[i].percentage * 100 + '%';
+                }
+                else{
+                    bar.style.top = (1 - res[i].percentage) * 100 + '%';
+                }
+
                 var percentage = document.createElement('div');
                 percentage.className = "percentage";
-                percentage.innerText = res[i].name;
+                percentage.innerHTML = "<span>" + res[i].name + "</span>";
+                percentage.appendChild(bar);
 
                 var section = document.createElement('div');
                 section.className = "section";
@@ -141,21 +153,21 @@ var homeJs = {
 //     }
 // ];
 // homeJs.loadImg(ary, 5);
-// var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
-// for (var i = 0; i < navEles.length; i++) {
-//     navEles[i].onclick = (function (i) {
-//         return function () {
-//             homeJs.navChange(navEles, this, i);
-//         }
-//     })(i);
-// }
+var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
+for (var i = 0; i < navEles.length; i++) {
+    navEles[i].onclick = (function (i) {
+        return function () {
+            homeJs.navChange(navEles, this, i);
+        }
+    })(i);
+}
 
 
 var loadingEles = document.getElementById('loading');
 document.body.removeChild(loadingEles);
 var home = document.getElementById('home');
-// document.getElementById('first').style.opacity = 0;
+document.getElementById('first').style.display = 'none';
 home.style.display = 'block';
 homeJs.initAnimate();
-homeJs.initSkills('public/json/skills.json');
-homeJs.initStartups('public/json/startups.json');
+// homeJs.initSkills('public/json/skills.json');
+// homeJs.initStartups('public/json/startups.json');

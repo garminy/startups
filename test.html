@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+
+    var content = "<%= j render 'headlines/section/main_article', headline: @next_headline %>"
+    $('#headlines-page').append(content);
+    loadNext.loadingFlag = false
+
+    $('#headlines-page .article_text img').each(function (index, item) {
+        var oImgSrc = $(item).attr('src');
+        if (oImgSrc != '/images/icons/transparent.png') {
+            $(item).attr('src', '/images/icons/transparent.png').attr('alt', '').attr('data-original', function () {
+                return oImgSrc
+            })
+        }
+    })
+    $('.headline_left img').lazyload({
+        effect: 'fadeIn'
+    });
+    $('.headline_right img').lazyload({
+        effect: 'fadeIn'
+    });
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+@mixin pc_me{
+  margin-top: 50px;
+  position: relative;
+  font-size: 14px;
+  color: #6c6c6c;
+  ul{
+    padding-bottom: 40px;
+    display: inline-block;
+    li{
+      width: 300px;
+      margin: 4px;
+      line-height: 2em;
+      .title{
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .content{
+    position: absolute;
+    left: 320px;
+    top: 136px;
+    right: 30px;
+    line-height: 2em;
+  }
+}
+
+@mixin mobile_me{
+  margin-top: 17vw;
+  ul{
+    text-align: center;
+    li{
+      line-height: 2em;
+      font-size: 1.6rem;
+      color: #6c6c6c;
+      .title{
+        padding-left: 1rem;
+      }
+    }
+  }
+  .content{
+    padding: 1rem 2rem 3rem;
+    font-size: 1.6rem;
+    color: #9c9c9c;
+  }
+}
+
+.me_model{
+  background: rgba(253, 209, 177, .2);
+  position: relative;
+
+}
+
+@media screen and (min-width: 769px) {
+  .me_model {
+    @include  pc_me;
+  }
+}
+@media screen and (max-width: 768px) {
+  .me_model {
+    @include  mobile_me;
+  }
+}

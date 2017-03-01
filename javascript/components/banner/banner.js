@@ -7,7 +7,7 @@ var banner = {
             for (var i = 0; i < data.length; i++) {
                 var banner = document.createElement('div');
                 banner.className = 'banner_unit';
-                banner.innerHTML = '<div class="img" style="background-image: url(' + data[i].url + ')"></div>';
+                banner.innerHTML = '<div class="img" style="background-image: url(' + data[i].img + ')"></div>';
                 fragment.appendChild(banner);
             }
             banner_box.appendChild(fragment);
