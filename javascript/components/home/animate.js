@@ -31,8 +31,8 @@ var homeJs = {
                 home.style.display = 'block';
                 window.timer = setTimeout(function () {
                     homeJs.initAnimate();
-                    // homeJs.initSkills('public/json/skills.json');
-                    // homeJs.initStartups('public/json/startups.json');
+                    homeJs.initSkills('public/json/skills.json');
+                    homeJs.initStartups('public/json/startups.json');
                     document.body.removeChild(loadingEles);
                 }, 1000);
             }
@@ -64,10 +64,10 @@ var homeJs = {
                 bar.className = "bar";
                 var deviceW = document.documentElement.clientWidth || document.body.clientWidth;
                 //设置百分比
-                if(deviceW <= 768 ){
+                if (deviceW <= 768) {
                     bar.style.width = res[i].percentage * 100 + '%';
                 }
-                else{
+                else {
                     bar.style.top = (1 - res[i].percentage) * 100 + '%';
                 }
 
@@ -120,6 +120,7 @@ var homeJs = {
 
                 var link = document.createElement('a');
                 link.href = res[i].url;
+                link.target="_blank";
                 link.appendChild(startupOption);
 
                 var section = document.createElement('div');
@@ -146,13 +147,13 @@ var homeJs = {
     }
 };
 
-// var ary = [
-//     {
-//         imgRoute: 'public/images/home/',
-//         imgAry: ['door_left.jpg', 'door_right.jpg', 'loading_bg.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
-//     }
-// ];
-// homeJs.loadImg(ary, 5);
+var ary = [
+    {
+        imgRoute: 'public/images/home/',
+        imgAry: ['door_left.jpg', 'door_right.jpg', 'loading_bg.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
+    }
+];
+homeJs.loadImg(ary, 5);
 var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
 for (var i = 0; i < navEles.length; i++) {
     navEles[i].onclick = (function (i) {
@@ -163,11 +164,11 @@ for (var i = 0; i < navEles.length; i++) {
 }
 
 
-var loadingEles = document.getElementById('loading');
-document.body.removeChild(loadingEles);
-var home = document.getElementById('home');
-document.getElementById('first').style.display = 'none';
-home.style.display = 'block';
-homeJs.initAnimate();
+// var loadingEles = document.getElementById('loading');
+// document.body.removeChild(loadingEles);
+// var home = document.getElementById('home');
+// document.getElementById('first').style.display = 'none';
+// home.style.display = 'block';
+// homeJs.initAnimate();
 // homeJs.initSkills('public/json/skills.json');
 // homeJs.initStartups('public/json/startups.json');
