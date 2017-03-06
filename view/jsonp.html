@@ -10,37 +10,37 @@
 <body>
 <script src="../javascript/libs/jquery.min.js"></script>
 <script>
-    $(function () {
-        var qsData = {
-            'wd': 'a',
-            'sugmode': '2',
-            'json': '1',
-            'p': '3',
-            'sid': '1444_21095_22037_21672',
-            'req': '2',
-            'bs': 'a',
-            'pbs': 'a',
-            'csor': '1',
-            'cb': 'jQuery110206802008193304845_1488532984544',
-            '_': '1488532984556'
-        };
-        $.ajax({
-            async: false,
-            url: 'https://www.baidu.com/s',
-            type: 'GET',
-            dataType: 'jsonp',
-            jsonp: 'jsoncallback',
-            data: qsData,
-            timeout: 5000,
-            success: function (json) {
-                console.log('success');
-            },
-            error: function (xhr) {
-                console.log('error');
-            }
+    var qsData = {
+        'wd': 'a',
+        'json': '1',
+        'p': '3',
+        'sid': '1444_21095_22037_21672',
+        'req': '2',
+        'csor': '1',
+        'cb': 'getData',
+        '_': '1488532984556'
+    };
+    $.ajax({
+        async: false,
+        url: 'https://www.baidu.com/su',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data: qsData,
+        timeout: 5000,
+        success: function (json) {
+            console.log('success');
+        },
+        error: function (json) {
+            console.log('error');
+        }
 
-        })
     })
+
+    function getData(json) {
+        console.log(json);
+    }
+
 </script>
 </body>
 </html>

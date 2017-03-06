@@ -150,10 +150,10 @@ var homeJs = {
 var ary = [
     {
         imgRoute: 'public/images/home/',
-        imgAry: ['door_left.jpg', 'door_right.jpg', 'loading_bg.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
+        imgAry: ['loading_bg.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
     }
 ];
-homeJs.loadImg(ary, 5);
+homeJs.loadImg(ary, 3);
 var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
 for (var i = 0; i < navEles.length; i++) {
     navEles[i].onclick = (function (i) {
