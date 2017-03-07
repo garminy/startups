@@ -2,7 +2,7 @@ var banner = {
     initDom: function () {
         var _this = this;
         var banner_box = document.getElementById('banner_list');
-        toolAjax.ajax('../public/json/startups.json', function (data) {
+        toolAjax.ajax('../public/json/banner.json', function (data) {
             var fragment = document.createDocumentFragment();
             for (var i = 0; i < data.length; i++) {
                 var banner = document.createElement('div');
