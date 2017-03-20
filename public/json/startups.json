@@ -42,10 +42,16 @@
     "img": "public/images/startup_list/accordion2.jpg"
   },
   {
-    "title": "瀑布流",
+    "title": "原生JS实现瀑布流",
     "url": "view/waterfall.html",
     "desc": "",
-    "img": "public/images/startup_list/accordion2.jpg"
+    "img": "public/images/startup_list/waterfall.jpg"
+  },
+  {
+    "title": "原生JS实现放大镜",
+    "url": "view/zoom_glass.html",
+    "desc": "",
+    "img": "public/images/startup_list/zoom_glass.jpg"
   },
   {
     "title": "",

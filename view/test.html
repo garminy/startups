@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function fn(str) {
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            var value = str.substr(i, 1);
+            if (!obj[value]) {
+                obj[value] = 1;
+            }
+            obj[value] += 1;
+        }
+
+        var max = {value: 0, key: ''};
+        for (key in obj) {
+            if (obj[key] > max['value']) {
+                max['value'] = obj[key];
+                max['key'] = key;
+            }
+        }
+        console.log(obj, max);
+        return max;
+    }
+    var s = 'aaabbbcccaaabbbaaa';
+    fn(s);
+
+
+    function parseUrl(url) {
+        var params = url.split('?')[1].split('&');
+        var obj = {};
+        for (var i = 0; i < params.length; i++) {
+            obj[params[i].split('=')[0]] = params[i].split('=')[1];
+        }
+        console.log(obj);
+    }
+
+    function parseUrl(url) {
+        var ary = url.split('?')[1];
+        var obj = {};
+        ary.replace(/([^&=]+)=([^&=])/g, function () {
+            obj[arguments[1]] = arguments[2];
+        });
+        console.log(obj);
+        return obj;
+    }
+    var url = 'http://www.hidoger.com/index.php?key0=0&key1=1&key2=2';
+    parseUrl(url);
+
+
+    var a = [];
+    //    function fn(a) {
+    //        if (a.length == 0) {
+    //            a[1] = 0;
+    //            return a;
+    //        }
+    //        if (a.length > 0) {
+    //            a.shift();
+    //            return a;
+    //        }
+    //    }
+    a[a.length ? 'shift' : 'push'](1);
+
+
+    var arr = [];
+    (function (n) {
+        if (n < 100) {
+            arr.push(n);
+            arguments.callee(arr.length);
+        }
+    })(0)
+    console.log('argu');
+    console.log(arr);
+
+
+    function getHref() {
+        var eles = document.getElementsByTagName('a');
+        var ary = [];
+        for (var i = 0; i < eles.length; i++) {
+            ary.push(eles[i].href);
+        }
+        return ary;
+    }
+    function getHref() {
+        var html_str = document.documentElement.innerHTML;
+        html_str.replace(/<a[^>]*href=(['"])([^>'"]+)1[^>]*>/gi, function () {
+            ary.push(arguments[2]);
+        });
+        return ary;
+    }
+</script>
+</body>
+</html>
