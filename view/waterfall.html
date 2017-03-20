@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .flow-box {
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .flow-box li {
+            position: absolute;
+            width: 260px;
+            padding: 10px;
+            outline: 1px solid #eee;
+            background: #fff;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            transition: all 0.5s ease-in-out;
+            -webkit-transition: all 0.5s ease-in-out;
+        }
+
+        .flow-box li:hover {
+            transform: scale(1.02);
+            -webkit-transform: scale(1.02);
+            z-index: 100;
+        }
+
+        .flow-box li img {
+            width: 100%;
+        }
+
+        .loading {
+            position: absolute;
+            text-align: center;
+            left: 0;
+            right: 0;
+        }
+        .loading img{
+            width: 160px;
+        }
+    </style>
+</head>
+<body>
+<ul id="flow-box" class="flow-box">
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081793&di=d40dcef4390477a6274b2e31e1673eb5&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201406%2F20%2F20140620150536_jQyXk.jpeg"/>
+    </li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081792&di=7db4713faababc4f0652635e385be07e&imgtype=0&src=http%3A%2F%2Fimg.xituan.com%2Fp5%2F20%2F63%2F2063bfffddfbe847a078a937ca97e855.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081792&di=eb9326ea37be43bd83ff0463fb306150&imgtype=0&src=http%3A%2F%2Fwww.hebtv.com%2Fliv_loadfile%2Fmuying%2Fbabyshow2%2Flist%2Ffold15%2F1425533226_86581200.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081792&di=7f27d2b4b8aebb327254cf830292ad78&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201406%2F12%2F20140612161737_xi3Ya.jpeg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081792&di=8471418038b8cac93bf8feb922278bef&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F54d00ad162d9f2d31fbca13aa9ec8a136227cc5e.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386081791&di=d896c9eadbaa7f478c1333b28b36a172&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201406%2F12%2F20140612161802_KztFY.jpeg"
+            alt=""></li>
+    <li><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2621529907,431488133&fm=23&gp=0.jpg" alt="">
+    </li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252950&di=b1e8e457c144f34c3e8eb928cd4cef5f&imgtype=0&src=http%3A%2F%2Fmvimg2.meitudata.com%2F56af11c53fe042216.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252950&di=4bf9c7f124e79043e307a865dffe3934&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2F4nquZ_x5q47y3uzt11P1Cw%3D%3D%2F6608824645469053416.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252949&di=30777a7b5f0358f638484352f49de247&imgtype=0&src=http%3A%2F%2Fpic6.wed114.cn%2F20130917%2F20130917115817905.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252949&di=5ae82ea22ea02822a4ac6f5e7c8c7a26&imgtype=0&src=http%3A%2F%2Fmvimg1.meitudata.com%2F5754cbf751ff36143.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252949&di=7c5b02c67071d1db2e8a0fe0b835f88b&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3Df0151ad89a82d158bb8259b9b00a19d5%2F3ce7a786c9177f3e4615603b76cf3bc79f3d5696.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252948&di=61a61ad7db1ee1093434bde6ce826fec&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201404%2F23%2F20140423203924_tnVtF.thumb.600_0.jpeg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252947&di=936061d2c502d1e9d8dbed26ad832cc2&imgtype=0&src=http%3A%2F%2Fwww.sznews.com%2Fphoto%2Fimages%2Fattachement%2Fpng%2Fsite3%2F20150630%2F4437e641f08816fc88bb55.png"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252945&di=391394c3f56d58299aa4f473059bd3b0&imgtype=0&src=http%3A%2F%2Fimg.deyi.net%2Fblock%2F80%2F8068c0bff1d363266e13ffe7e7b62bfc.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252945&di=242007d54d11d19cc640b770a95bd957&imgtype=0&src=http%3A%2F%2Fimg.tupianzj.com%2Fuploads%2Fallimg%2F160321%2F15-1603212132230-L.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252945&di=27a4c278584b1aab46c26754626ed281&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201403%2F10%2F20140310145851_JEaVk.jpeg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386387789&di=c25e89880e47c9d272b2e833d7459fa7&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D3061614498%2C3623307930%26fm%3D214%26gp%3D0.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252975&di=c13c879a5a957de46d537f745b3ad1e4&imgtype=0&src=http%3A%2F%2Fphotos.tuchong.com%2F288453%2Ff%2F20585511.jpg"
+            alt=""></li>
+    <li><img
+            src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489386252974&di=b2953280cb8a8c9e7877cd3a12de9f07&imgtype=0&src=http%3A%2F%2Fimg.tupianzj.com%2Fuploads%2Fallimg%2F160310%2F15-1603101J4130-L.jpg"
+            alt=""></li>
+</ul>
+<div id="loading" class="loading"><img src="http://img14.3lian.com/201510/21/af398caa308168a2f8ce706dabc71934.gif"
+                                       alt=""></div>
+
+<script src="../javascript/libs/toolAjax.js"></script>
+<script src="../javascript/components/waterfall/index.js"></script>
+</body>
+</html>

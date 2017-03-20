@@ -12,12 +12,6 @@
     "img": "public/images/startup_list/iphone.jpg"
   },
   {
-    "title": "圆环进度条",
-    "url": "view/progress_circle.html",
-    "desc": "",
-    "img": "public/images/startup_list/circle_percentage.jpg"
-  },
-  {
     "title": "原生JS实现ajax分页器",
     "url": "view/table_page.html",
     "desc": "",
@@ -48,9 +42,21 @@
     "img": "public/images/startup_list/accordion2.jpg"
   },
   {
+    "title": "瀑布流",
+    "url": "view/waterfall.html",
+    "desc": "",
+    "img": "public/images/startup_list/accordion2.jpg"
+  },
+  {
     "title": "",
     "url": "",
     "desc": "",
     "img": ""
-  }
+  },
+  {
+    "title": "圆环进度条",
+    "url": "view/progress_circle.html",
+    "desc": "",
+    "img": "public/images/startup_list/circle_percentage.jpg"
+  },
 ]

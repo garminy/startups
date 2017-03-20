@@ -462,7 +462,7 @@ nav {
         height: 270px;
         background: #fff;
         border: 1px solid transparent;
-        box-shadow: 3px 3px 10px #eee;
+        box-shadow: 3px 3px 10px #e;
         margin: 10px; }
       .startup_model .section .startup_option {
         padding: 16px;
@@ -471,7 +471,8 @@ nav {
         .startup_model .section .startup_option .cover {
           height: 180px;
           overflow: hidden;
-          position: relative; }
+          position: relative;
+          background: #eee; }
           .startup_model .section .startup_option .cover img {
             background: #eee;
             width: 100%;
@@ -508,8 +509,8 @@ nav {
       width: 12rem;
       height: 8rem;
       overflow: hidden;
-      background: #fff;
-      float: left; }
+      float: left;
+      background: #eee; }
       .startup_model .section .startup_option .cover img {
         width: 100%; }
     .startup_model .section .startup_option .title {

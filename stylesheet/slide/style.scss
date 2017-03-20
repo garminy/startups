@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  ul.banner li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all .5s ease-in;
+    &:nth-child(1) {
+      background-image: url(../../public/images/landscape_img/img0.jpg);
+      z-index: 5;
+    }
+    &:nth-child(2) {
+      background-image: url(../../public/images/landscape_img/img1.jpg);
+      z-index: 4;
+    }
+    &:nth-child(3) {
+      background-image: url(../../public/images/landscape_img/img2.jpg);
+      z-index: 3;
+    }
+    &:nth-child(4) {
+      background-image: url(../../public/images/landscape_img/img3.jpg);
+      z-index: 2;
+    }
+    &:nth-child(5) {
+      background-image: url(../../public/images/landscape_img/img4.jpg);
+      z-index: 1;
+    }
+
+    &:target {
+      z-index: 10;
+    }
+    &#img1:target {
+      animation: animate_route .5s ease-in;
+    }
+    &#img2:target {
+      animation: rotateInDownLeft .5s ease-in;
+    }
+    &#img3:target {
+      animation: animate_route .5s ease-in;
+    }
+    &#img4:target {
+      animation: rotateInDownLeft .5s ease-in;
+    }
+    &#img5:target {
+      animation: animate_route .5s ease-in;
+    }
+  }
+
+  ul.icon {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 100;
+    -webkit-transform: translate(0, -50%);
+    li {
+      width: 90px;
+      height: 60px;
+      border: 2px solid #fff;
+      margin: 10px;
+      position: relative;
+      a {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: grayscale(1);
+        -webkit-filter: grayscale(1);
+      }
+      &:nth-child(1) a {
+        background-image: url(../../public/images/landscape_img/img0.jpg);
+      }
+      &:nth-child(2) a {
+        background-image: url(../../public/images/landscape_img/img1.jpg);
+      }
+      &:nth-child(3) a {
+        background-image: url(../../public/images/landscape_img/img2.jpg);
+      }
+      &:nth-child(4) a {
+        background-image: url(../../public/images/landscape_img/img3.jpg);
+      }
+      &:nth-child(5) a {
+        background-image: url(../../public/images/landscape_img/img4.jpg);
+      }
+      a:hover, a:focus {
+        filter: grayscale(0);
+        -webkit-filter: grayscale(0);
+      }
+    }
+  }
+}
+
+@keyframes animate_route {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: scale(0, 0) rotate(-180deg);
+    -webkit-transform: scale(0, 0) rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1, 1) rotate(0deg);
+    -webkit-transform: scale(1, 1) rotate(0deg);
+  }
+}
+
+@keyframes animate1 {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: scale(0, 0) rotate(-180deg);
+    -webkit-transform: scale(0, 0) rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: scale(1, 1) rotate(0deg);
+    -webkit-transform: scale(1, 1) rotate(0deg);
+  }
+}

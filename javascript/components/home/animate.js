@@ -150,22 +150,16 @@ var homeJs = {
 var ary = [
     {
         imgRoute: 'public/images/home/',
-        imgAry: ['bg_flower.jpg', 'loading_bg.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
-    }, {
-        imgRoute: 'public/images/icon/',
-        imgAry: ['ai.jpg', 'ps.jpg', 'qq.png', 'wechat.png', 'weibo.jpg']
+        imgAry: ['bg_flower.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
     }, {
         imgRoute: 'public/images/landscape_img/',
         imgAry: ['img0.jpg', 'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'img7.jpg']
     },{
         imgRoute: 'public/images/portrait_img/',
         imgAry: ['img0.jpeg', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg', 'img5.jpeg', 'img6.jpeg']
-    },{
-        imgRoute: 'public/images/startup_list/',
-        imgAry: ['accordion1.jpg', 'accordion2.jpg', 'banner.jpg', 'circle_percentage.jpg', 'iphone.jpg', 'jsonp_baidu.jpg', 'table_page.jpg']
     }
 ];
-homeJs.loadImg(ary, 31);
+homeJs.loadImg(ary, 18);
 var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
 for (var i = 0; i < navEles.length; i++) {
     navEles[i].onclick = (function (i) {
