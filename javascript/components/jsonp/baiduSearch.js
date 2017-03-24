@@ -37,6 +37,7 @@ var baiduFunc = {
             "_": "1488532984556"
         };
         window.x.jsonp('https://www.baidu.com/su', requestData, 'cb', function (data) {
+            debugger
             _this.drawSeachKey(data.s);
         })
     },
