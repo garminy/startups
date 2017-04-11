@@ -4,7 +4,7 @@
     "percentage": 0.7
   },
   {
-    "name": "ES5",
+    "name": "ES6",
     "percentage": 0.3
   },
   {
@@ -16,19 +16,19 @@
     "percentage": 0.6
   },
   {
-    "name": "Ruby",
-    "percentage": 0.5
+    "name": "H5",
+    "percentage": 0.6
+  },
+  {
+    "name": "webpack",
+    "percentage": 0.3
   },
   {
     "name": "Ruby",
-    "percentage": 0.5
+    "percentage": 0.3
   },
   {
-    "name": "Ruby",
-    "percentage": 0.5
-  },
-  {
-    "name": "Ps",
-    "percentage": 1
+    "name": "PS",
+    "percentage": 0.9
   }
 ]

@@ -358,7 +358,9 @@ nav {
         .skill_model .section .percentage span {
           position: relative;
           z-index: 1;
-          font-size: 16px; }
+          font-size: 26px;
+          text-shadow: 1px 1px 1px #000;
+          color: #fff; }
         .skill_model .section .percentage .bar {
           content: ' ';
           display: inline-block;
@@ -462,7 +464,7 @@ nav {
         height: 270px;
         background: #fff;
         border: 1px solid transparent;
-        box-shadow: 3px 3px 10px #e;
+        box-shadow: 3px 3px 10px #eee;
         margin: 10px; }
       .startup_model .section .startup_option {
         padding: 16px;

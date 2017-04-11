@@ -40,7 +40,9 @@
       span {
         position: relative;
         z-index: 1;
-        font-size: 16px;
+        font-size: 26px;
+        text-shadow: 1px 1px 1px #000;
+        color: #fff;
       }
       .bar {
         content: ' ';

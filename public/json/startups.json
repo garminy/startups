@@ -52,17 +52,5 @@
     "url": "view/zoom_glass.html",
     "desc": "",
     "img": "public/images/startup_list/zoom_glass.jpg"
-  },
-  {
-    "title": "",
-    "url": "",
-    "desc": "",
-    "img": ""
-  },
-  {
-    "title": "圆环进度条",
-    "url": "view/progress_circle.html",
-    "desc": "",
-    "img": "public/images/startup_list/circle_percentage.jpg"
   }
 ]
