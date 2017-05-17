@@ -51,7 +51,7 @@
       transform: translate(0, -5px);
       -webkit-transform: translate(0, -5px);
       a {
-        border: 1px solid #f90;
+        border: 1px solid #895cf2;
       }
     }
   }
@@ -106,22 +106,14 @@
 .startup_model {
   position: relative;
   padding-bottom: 50px;
-  background: rgba(253, 209, 177, .2);
+  background: #f7f4fd;
   overflow: hidden;
-  //&::before {
-  //  content: ' ';
-  //  display: block;
-  //  position: absolute;
-  //  left: 0;
-  //  right: 0;
-  //  top: 0;
-  //  bottom: 0;
-  //  background: url(../../public/images/home/bg_peach.jpg) repeat-y center;
-  //  background-size: 100% auto;
-  //  filter: blur(36px);
-  //  -webkit-filter: blur(36px);
-  //  z-index: -1;
-  //}
+  .section a .startup_option .cover{
+    -webkit-transition: all .4s ease-in .4s;
+    -moz-transition: all .4s ease-in .4s;
+    -ms-transition: all .4s ease-in .4s;
+    transition: all .4s ease-in .4s;
+  }
 
   #load_more_startup {
     clear: both;
@@ -134,14 +126,16 @@
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (orientation: landscape) {
   .startup_model {
+    padding-left: 25vw;
     @include pc_startup;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (orientation: portrait) {
   .startup_model {
+    padding-top: 60vw;
     @include mobile_startup;
   }
 }

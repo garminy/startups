@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+ul, ol, li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+@media screen and (max-width: 374px) {
+  html {
+    font-size: 8.54px; } }
+@media screen and (min-width: 375px) and (max-width: 413px) {
+  html {
+    font-size: 10px; } }
+@media screen and (min-width: 414px) and (max-width: 768px) {
+  html {
+    font-size: 11px; } }
+@media screen and (min-width: 769px) and (max-width: 999px) {
+  html {
+    font-size: 10px; } }
+
+/*# sourceMappingURL=reset.css.map */

@@ -1,5 +1,23 @@
 [
   {
+    "title": "原生JS实现日历插件",
+    "url": "view/calendar.html",
+    "desc": "",
+    "img": ""
+  },
+  {
+    "title": "原生JS实现瀑布流",
+    "url": "view/waterfall.html",
+    "desc": "",
+    "img": "public/images/startup_list/waterfall.jpg"
+  },
+  {
+    "title": "原生JS编写jsonp实现百度搜索",
+    "url": "view/jsonp2.html",
+    "desc": "",
+    "img": "public/images/startup_list/jsonp_baidu.jpg"
+  },
+  {
     "title": "3D 图片 圆环",
     "url": "view/banner.html",
     "desc": "",
@@ -18,12 +36,6 @@
     "img": "public/images/startup_list/table_page.jpg"
   },
   {
-    "title": "原生JS编写jsonp实现百度搜索",
-    "url": "view/jsonp2.html",
-    "desc": "",
-    "img": "public/images/startup_list/jsonp_baidu.jpg"
-  },
-  {
     "title": "原生JS实现表格升降序排列",
     "url": "view/table_sort.html",
     "desc": "",
@@ -40,12 +52,6 @@
     "url": "view/accordion2.html",
     "desc": "",
     "img": "public/images/startup_list/accordion2.jpg"
-  },
-  {
-    "title": "原生JS实现瀑布流",
-    "url": "view/waterfall.html",
-    "desc": "",
-    "img": "public/images/startup_list/waterfall.jpg"
   },
   {
     "title": "原生JS实现放大镜",

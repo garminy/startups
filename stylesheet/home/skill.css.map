@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AA4EA,2BASC;EARC,IAAK;IACH,SAAS,EAAE,YAAY;IACvB,iBAAiB,EAAE,YAAY;EAEjC,EAAG;IACD,SAAS,EAAE,cAAc;IACzB,iBAAiB,EAAE,cAAc",
-"sources": ["skill.scss"],
-"names": [],
-"file": "skill.css"
-}

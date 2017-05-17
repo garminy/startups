@@ -1,29 +1,7 @@
-@import "nav.scss";
+@import "reset.scss";
 @import "load.scss";
-@import "banner.scss";
-@import "about_me.scss";
-@import "skill.scss";
+@import "bizcard.scss";
 @import "startup.scss";
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #fefdfc;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-ul, ol, li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
 
 @media screen and (min-width: 1000px) {
   .container {
@@ -43,50 +21,11 @@ a {
   }
 }
 
-@media screen and (max-width: 374px) {
-  html {
-    font-size: 8.54px;
-  }
-}
-
-@media screen and (min-width: 375px) and (max-width: 413px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-@media screen and (min-width: 414px) and(max-width: 768px) {
-  html {
-    font-size: 11px;
-  }
-}
-
-@media screen and (min-width: 769px) and(max-width: 999px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .home_main {
   display: none;
   overflow: hidden;
   max-width: 100%;
-  .bg{
+  .bg {
     background: url(../../public/images/home/bg_flower.jpg) no-repeat;
     background-size: cover;
     position: fixed;
@@ -101,19 +40,19 @@ a {
     text-align: center;
     position: relative;
     color: #fff;
-    text-shadow: 2px 2px 4px #fa0;
+    text-shadow: 2px 2px 4px #895cf2;
   }
 }
 
-
-@media screen and (min-width: 769px){
-  .model_title{
+@media screen and (min-width: 769px) {
+  .model_title {
     padding: 40px;
     font-size: 42px;
   }
 }
-@media screen and (max-width: 768px){
-  .model_title{
+
+@media screen and (max-width: 768px) {
+  .model_title {
     padding: 2rem 0;
     font-size: 2.4rem;
   }

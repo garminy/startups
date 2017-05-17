@@ -19,6 +19,7 @@ var homeJs = {
         }
     },
     drawProgressBar: function (percentage) {
+        var _this = this;
         var loadingEle = document.getElementById('loading_line');
         loadingEle.style.width = percentage * 100 + '%';
         if (percentage >= 1) { //图片加载完成后显示出进入主页按钮，并且绑定进入主页的方法
@@ -30,9 +31,9 @@ var homeJs = {
                 var home = document.getElementById('home');
                 home.style.display = 'block';
                 window.timer = setTimeout(function () {
-                    homeJs.initAnimate();
-                    homeJs.initSkills('public/json/skills.json');
-                    homeJs.initStartups('public/json/startups.json');
+                    _this.initAnimate();
+                    _this.initStartups('public/json/startups.json');
+                    // 进入主页后删除加载页面
                     document.body.removeChild(loadingEles);
                 }, 1000);
             }
@@ -40,50 +41,8 @@ var homeJs = {
         }
     },
     initAnimate: function () {
-        document.getElementById('first').className += ' animate';
-    },
-    navChange: function (navEles, ele, index) {
-        console.log(ele);
-        for (var i = 0; i < navEles.length; i++) {
-            navEles[i].className = '';
-        }
-        navEles[index].className = 'active';
-
-        // var lineLeftValue = ele.offsetLeft;
-        // var lineWidthValue = ele.clientWidth;
-        // var line = document.getElementsByTagName('nav')[0].getElementsByClassName('line')[0];
-        // line.style.left = lineLeftValue + 'px';
-        // line.style.width = lineWidthValue + 'px';
-    },
-    initSkills: function (url) {
-        toolAjax.ajax(url, function (res) {
-            var skillList = document.getElementById('skill_list');
-            var fragment = document.createDocumentFragment();
-            for (var i = 0; i < res.length; i++) {
-                var bar = document.createElement('div');
-                bar.className = "bar";
-                var deviceW = document.documentElement.clientWidth || document.body.clientWidth;
-                //设置百分比
-                if (deviceW <= 768) {
-                    bar.style.width = res[i].percentage * 100 + '%';
-                }
-                else {
-                    bar.style.top = (1 - res[i].percentage) * 100 + '%';
-                }
-
-                var percentage = document.createElement('div');
-                percentage.className = "percentage";
-                percentage.innerHTML = "<span>" + res[i].name + "</span>";
-                percentage.appendChild(bar);
-
-                var section = document.createElement('div');
-                section.className = "section";
-
-                section.appendChild(percentage);
-                fragment.appendChild(section);
-            }
-            skillList.appendChild(fragment);
-        })
+        var bizcard = document.getElementById('bizcard');
+        bizcard.className = 'bizcard half';
     },
     initStartups: function (url, page) {
         var _this = this;
@@ -154,27 +113,23 @@ var ary = [
     }, {
         imgRoute: 'public/images/landscape_img/',
         imgAry: ['img0.jpg', 'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'img7.jpg']
-    },{
+    }, {
         imgRoute: 'public/images/portrait_img/',
         imgAry: ['img0.jpeg', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg', 'img5.jpeg', 'img6.jpeg']
     }
 ];
 homeJs.loadImg(ary, 18);
-var navEles = document.getElementsByTagName('nav')[0].getElementsByTagName('li');
-for (var i = 0; i < navEles.length; i++) {
-    navEles[i].onclick = (function (i) {
-        return function () {
-            homeJs.navChange(navEles, this, i);
-        }
-    })(i);
+
+
+// window.timer = setTimeout(function () {
+//     homeJs.initAnimate();
+// }, 1);
+
+
+window.onresize = function () {
+    var bizcard = document.getElementById('bizcard');
+    bizcard.className = 'bizcard';
+    window.timer = setTimeout(function () {
+        homeJs.initAnimate();
+    }, 400);
 }
-
-
-// var loadingEles = document.getElementById('loading');
-// document.body.removeChild(loadingEles);
-// var home = document.getElementById('home');
-// document.getElementById('first').style.display = 'none';
-// home.style.display = 'block';
-// homeJs.initAnimate();
-// homeJs.initSkills('public/json/skills.json');
-// homeJs.initStartups('public/json/startups.json');
