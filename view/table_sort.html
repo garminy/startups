@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="box">
+    <table id="table">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>score</th>
+            <th>sex</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script src="../javascript/libs/toolAjax.js"></script>
+<script>
+    var tool_sort = {
+        data_index: {name: 0, age: 1, score: 2, sex: 3},
+        init_data: function (data) {
+            var fragment = document.createDocumentFragment();
+            for (var i = 0; i < data.length; i++) {
+                var tr = document.createElement('tr');
+                var arr = [];
+                for (key in data[i]) {
+                    arr[this.data_index[key]] = '<td>' + data[i][key] + '</td>';
+                }
+                tr.innerHTML = arr.join('');
+                fragment.appendChild(tr);
+            }
+            tBody.append(fragment);
+            fragment = null;
+        },
+
+
+        sort: function (index) {
+            for (var k = 0; k < ths.length; k++) {
+                ths[k].flag = (k == index) ? ths[k].flag : 1;
+            }
+            var _this = this;
+            _this.flag *= -1;
+
+            //排序
+            var ary = Array.prototype.slice.call(trs, 0);
+            var resultAry = ary.sort(function (a, b) {
+                a = a.cells[index].innerHTML;
+                b = b.cells[index].innerHTML;
+                if (isNaN(a) || isNaN(b)) {
+                    return a.localeCompare(b) * _this.flag;
+                }
+                return (a - b) * _this.flag;
+            });
+
+
+            //重新渲染
+            var fragment = document.createDocumentFragment();
+            for (var i = 0; i < resultAry.length; i++) {
+                fragment.appendChild(resultAry[i]);
+            }
+            tBody.appendChild(fragment);
+            fragment = null;
+        }
+    };
+
+    toolAjax.ajax('../public/json/sort_data.txt', function (data) {
+        console.log(data);
+        tool_sort.init_data(data);
+    });
+
+    var table = document.getElementById("table");
+    var tBody = table.tBodies[0];
+    var ths = table.rows[0].cells;
+    var trs = table.tBodies[0].rows;
+    for (var i = 0; i < ths.length; i++) {
+        ths[i].flag = 1;
+        ths[i].onclick = (function (i) {
+            return function () {
+//                tool_sort.sort(i);
+                tool_sort.sort.call(this, i);
+            }
+        })(i);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "JS",
+    "percentage": 0.7
+  },
+  {
+    "name": "ES6",
+    "percentage": 0.3
+  },
+  {
+    "name": "CSS3",
+    "percentage": 0.6
+  },
+  {
+    "name": "ReactJS",
+    "percentage": 0.6
+  },
+  {
+    "name": "H5",
+    "percentage": 0.6
+  },
+  {
+    "name": "webpack",
+    "percentage": 0.3
+  },
+  {
+    "name": "Ruby",
+    "percentage": 0.3
+  },
+  {
+    "name": "PS",
+    "percentage": 0.9
+  }
+]

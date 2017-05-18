@@ -1,0 +1,91 @@
+body {
+  background: #fefefe; }
+
+.progress_wrapper {
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  position: relative;
+  margin: 0 auto; }
+  .progress_wrapper .wrapper {
+    width: 110px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden; }
+    .progress_wrapper .wrapper .progress {
+      width: 180px;
+      height: 180px;
+      position: absolute;
+      top: 0;
+      border: 20px solid #eee;
+      border-radius: 50%;
+      -webkit-transform: rotate(-135deg); }
+      .progress_wrapper .wrapper .progress.right_circle {
+        right: 1px;
+        border-right: 20px solid #f90;
+        border-top: 20px solid #f90; }
+      .progress_wrapper .wrapper .progress.left_circle {
+        left: 1px;
+        border-left: 20px solid #f90;
+        border-bottom: 20px solid #f90; }
+    .progress_wrapper .wrapper.right {
+      right: 0; }
+    .progress_wrapper .wrapper.left {
+      left: 0; }
+
+.progress_wrapper.loading .wrapper .progress.right_circle {
+  animation: right_circle 1.6s linear infinite;
+  -webkit-animation: right_circle 1.6s linear infinite; }
+.progress_wrapper.loading .wrapper .progress.left_circle {
+  animation: left_circle 1.6s linear infinite;
+  -webkit-animation: left_circle 1.6s linear infinite; }
+
+@keyframes right_circle {
+  0% {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg); }
+  50%, 100% {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); } }
+@keyframes left_circle {
+  0%, 50% {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg); }
+  100% {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); } }
+.progress_circle .lt_half .right_circle, .progress_circle .gt_half .right_circle {
+  transition: all .6s linear;
+  -webkit-transition: all .6s linear; }
+.progress_circle .lt_half .left_circle, .progress_circle .gt_half .left_circle {
+  transition: all .6s linear .6s;
+  -webkit-transition: all .6s linear .6s; }
+.progress_circle form {
+  padding-top: 20px;
+  color: #6c6c6c;
+  font-size: 14px;
+  text-align: center; }
+  .progress_circle form input {
+    margin: 0 6px;
+    border-radius: 4px;
+    padding: 0 10px;
+    line-height: 24px;
+    outline: none;
+    border: 1px solid #9c9c9c; }
+  .progress_circle form .btn {
+    text-align: center;
+    padding: 10px; }
+    .progress_circle form .btn span {
+      display: inline-block;
+      cursor: pointer;
+      line-height: 30px;
+      padding: 0 20px;
+      border-radius: 10px;
+      color: #fff;
+      background: #038aef;
+      box-shadow: inset 0px 3px 4px #40a9f7; }
+      .progress_circle form .btn span:hover, .progress_circle form .btn span:focus {
+        background: #037cd7; }
+
+/*# sourceMappingURL=style.css.map */

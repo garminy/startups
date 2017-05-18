@@ -8,37 +8,162 @@
     <title>Document</title>
 </head>
 <body>
-<div id="open">
-    打开
-</div>
-<a href="vc://www.oschina.net/launch/app?type=6&amp;id=79515">link open open open open </a>
-
+<div id="div">1</div>
+<div id="div">2</div>
+<div id="div">3</div>
+<div id="div">4</div>
+<div id="div">5</div>
+<div id="div">6</div>
+<div id="div">7</div>
+<div id="div">8</div>
+<div id="div">9</div>
+<div id="div">10</div>
 <script>
-    alert(navigator.userAgent);
-    document.getElementById('open').onclick = function () {
-        window.location.href = 'vc://www.oschina.net/launch/app?type=6&amp;id=79515'
-    }
-
-
-    var client = {
-        versions: function () {
-            var u = navigator.userAgent;
-            return {
-                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+    function fn(str) {
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            var value = str.substr(i, 1);
+            if (!obj[value]) {
+                obj[value] = 1;
             }
-        }()
+            obj[value] += 1;
+        }
+
+        var max = {value: 0, key: ''};
+        for (key in obj) {
+            if (obj[key] > max['value']) {
+                max['value'] = obj[key];
+                max['key'] = key;
+            }
+        }
+        console.log(obj, max);
+        return max;
     }
-</script>
-<script type="text/javascript">
-    var u = navigator.userAgent, app = navigator.appVersion;
-    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
-    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    if (isAndroid) {
-        alert("是安卓");
-    } else if (isiOS) {
-        alert("是苹果");
+    var s = 'aaabbbcccaaabbbaaa';
+    fn(s);
+
+
+    function parseUrl(url) {
+        var params = url.split('?')[1].split('&');
+        var obj = {};
+        for (var i = 0; i < params.length; i++) {
+            obj[params[i].split('=')[0]] = params[i].split('=')[1];
+        }
+        console.log(obj);
     }
+
+    function parseUrl(url) {
+        var ary = url.split('?')[1];
+        var obj = {};
+        ary.replace(/([^&=]+)=([^&=])/g, function () {
+            obj[arguments[1]] = arguments[2];
+        });
+        console.log(obj);
+        return obj;
+    }
+    var url = 'http://www.hidoger.com/index.php?key0=0&key1=1&key2=2';
+    parseUrl(url);
+
+
+    var a = [];
+    //    function fn(a) {
+    //        if (a.length == 0) {
+    //            a[1] = 0;
+    //            return a;
+    //        }
+    //        if (a.length > 0) {
+    //            a.shift();
+    //            return a;
+    //        }
+    //    }
+    a[a.length ? 'shift' : 'push'](1);
+
+
+    var arr = [];
+    (function (n) {
+        if (n < 100) {
+            arr.push(n);
+            arguments.callee(arr.length);
+        }
+    })(0)
+    console.log('argu');
+    console.log(arr);
+
+
+    function getHref() {
+        var eles = document.getElementsByTagName('a');
+        var ary = [];
+        for (var i = 0; i < eles.length; i++) {
+            ary.push(eles[i].href);
+        }
+        return ary;
+    }
+    function getHref() {
+        var html_str = document.documentElement.innerHTML;
+        html_str.replace(/<a[^>]*href=(['"])([^>'"]+)1[^>]*>/gi, function () {
+            ary.push(arguments[2]);
+        });
+        return ary;
+    }
+
+
+    function deleteOver(ary) {
+        ary = ary || [1, 3, 5, 6, 8, 5, 3, 2, 4, 5, 4, 4, 2, 8, 9, 0, 6, 5, 4, 3, 8, 9, 6, 3, 2];
+        var newAry = [];
+        for (var i = 0; i < ary.length; i++) {
+            if (newAry.indexOf(ary[i]) < 0) {
+                newAry.push(ary[i]);
+            }
+        }
+        console.log(newAry);
+    }
+    deleteOver();
+
+
+    console.log('~~~~~~~~~~~~~~~~分割线~~~~~~~~~~~~~~~~~~~~');
+
+    const students = [{
+        id: 1,
+        name: 'Eric Elliott',
+        score: 80,
+        average: 5
+
+    }, {
+        id: 2,
+        name: 'bbb Elliott',
+        score: 60,
+        average: 5
+    }, {
+        id: 3,
+        name: 'aaa Elliott',
+        score: 60,
+        average: 4
+    }];
+
+    function sortStudent(students) {
+//        console.log(students);
+//        Array.prototype.sort.call(students, function (a, b) {
+//            return (a.score == b.score) ? (a.average - b.average) : (a.score - b.score);
+//        })
+
+        for (var i = 0; i < students.length - 1; i++) {
+            for (var j = i + 1; j < students.length; j++) {
+                var flag = false;
+                if (students[i].score == students[j].score) {
+                    flag = students[i].average > students[j].average;
+                } else {
+                    flag = students[i].score > students[j].score;
+                }
+                if (!!flag) {
+                    var temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
+            }
+        }
+        console.log(students);
+    }
+    sortStudent(students);
 </script>
 </body>
 </html>

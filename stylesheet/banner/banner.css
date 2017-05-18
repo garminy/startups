@@ -1,0 +1,64 @@
+body {
+  background-color: rgba(0, 0, 0, 0.9);
+  background-size: cover; }
+
+#banner_area {
+  position: relative; }
+  #banner_area #banner_list {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 300px 0;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    transition: all 1s;
+    transform: perspective(1000px) rotateY(0deg) rotateX(-14deg); }
+    #banner_area #banner_list .bg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1200px;
+      height: 1200px;
+      margin-top: -600px;
+      margin-left: -600px;
+      transform: rotateX(90deg) translateZ(-20px);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 75%); }
+    #banner_area #banner_list .banner_unit {
+      position: absolute;
+      left: 50%;
+      /* box-shadow: 0 0 5px #595959; */
+      width: 130px;
+      height: 160px;
+      margin: -60px 0 0 -65px;
+      transition: all 1s;
+      transform: rotateY(0deg) translateZ(0px); }
+      #banner_area #banner_list .banner_unit .img {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.16) 100%);
+        border-radius: 10px;
+        -webkit-box-reflect: below 10px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(1%, transparent), to(rgba(250, 250, 250, 0.3)));
+        transform: scale(1, 1);
+        transition: all 1s;
+        background-size: cover;
+        background-repeat: no-repeat; }
+        #banner_area #banner_list .banner_unit .img:hover {
+          transform: scale(1.2, 1.2); }
+  #banner_area ul.btn li {
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 50px;
+    padding: 30px 14px;
+    display: inline-block;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%); }
+    #banner_area ul.btn li:first-child {
+      left: 50px; }
+    #banner_area ul.btn li:last-child {
+      right: 50px; }
+
+/*# sourceMappingURL=banner.css.map */

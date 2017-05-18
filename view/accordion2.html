@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/accordion/style2.css">
+</head>
+<body>
+<div id="accordion" class="accordion">
+    <ul>
+        <li class="on" style="background-image: url(../public/images/landscape_img/img0.jpg)">
+            <b>十里桃花</b>
+        </li>
+        <li style="background-image: url(../public/images/landscape_img/img1.jpg)">
+            <b>海边桥</b>
+        </li>
+        <li style="background-image: url(../public/images/landscape_img/img2.jpg)">
+            <b>大自然</b>
+        </li>
+        <li style="background-image: url(../public/images/landscape_img/img3.jpg)">
+            <b>薰衣草</b>
+        </li>
+        <li style="background-image: url(../public/images/landscape_img/img4.jpg)">
+            <b></b>
+        </li>
+    </ul>
+</div>
+<script>
+    var accordionEles = document.getElementById('accordion').getElementsByTagName('li');
+    for (var i = 0; i < accordionEles.length; i++) {
+        accordionEles[i].onclick = (function (i) {
+            return function () {
+                for (var j = 0; j < accordionEles.length; j++) {
+                    accordionEles[j].className = "";
+                }
+                this.className += " on";
+            }
+        })(i)
+    }
+    //    $(".ts-ul li").mouseover(function() {
+    //        $(".ts-ul li.on").removeClass("on");
+    //        $(this).addClass("on");
+    //    }).eq(0).mouseover();
+</script>
+</body>
+</html>

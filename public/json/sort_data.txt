@@ -1,0 +1,1 @@
+[{"name":"john","age":23,"score":89,"sex":"1"},{"name":"emock","age":67,"score":78,"sex":"0"},{"name":"yone","age":12,"score":45,"sex":"1"},{"name":"calrolin","age":32,"score":78,"sex":"0"},{"name":"demon","age":22,"score":98,"sex":"1"}]

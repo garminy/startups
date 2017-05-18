@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/menu/style.css">
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li data-id="100">
+            <a>Products</a>
+            <ul>
+                <li data-id="200" data-parentId="100"><a>Cameras</a>
+                    <ul>
+                        <li data-id="300" data-parentId="200">
+                            <a>Nikon</a>
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="201" data-parentId="100">
+                    <a>Lenses</a>
+                    <ul>
+                        <li data-id="301" data-parentId="201">
+                            <a>Telephoto</a>
+                        </li>
+                        <li data-id="302" data-parentId="201">
+                            <a>Zoom</a>
+                            <ul>
+                                <li data-id="401" data-parentId="302">
+                                    <a>35mm to 125mm</a>
+                                </li>
+                                <li data-id="402" data-parentId="302">
+                                    <a>50mm to 250mm</a>
+                                </li>
+                                <li data-id="403" data-parentId="302">
+                                    <a>125mm to 500mm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li data-id="303" data-parentId="201">
+                            <a>Mirror</a>
+                        </li>
+                        <li data-id="304" data-parentId="201">
+                            <a>Non standard</a>
+                            <ul>
+                                <li data-id="404" data-parentId="304">
+                                    <a>Bayonet mount</a>
+                                </li>
+                                <li data-id="405" data-parentId="304">
+                                    <a>Screw mount</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="202" data-parentId="100">
+                    <a>Flash Guns</a>
+                </li>
+                <li data-id="203" data-parentId="100">
+                    <a>Tripods</a>
+                </li>
+                <li data-id="204" data-parentId="100">
+                    <a>Filters</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div id="result">
+
+</div>
+<script>
+    //    根据DOM结构逐层向上查找
+    var menu1 = {
+        generator: function () {
+            var _this = this;
+            var menu = document.getElementById('menu');
+
+            // 事件委托方式 当click menu时，开始统计
+            menu.onclick = function (e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                if (target.tagName != 'A') return;
+
+                // 递归逐层向上查找 记录menu label
+                var resultAry = _this.getMenu(target);
+
+                _this.appendEle(document.getElementById('result'), resultAry.reverse().join(' > '), 'p')
+            }
+        },
+        getMenu: function (target, ary) {
+            var _this = this;
+            if (!ary) {
+                var ary = [];
+            }
+            ary.push(target.innerHTML);
+            var ulEle = _this.getParents(target, 'ul');
+            if (ulEle.parentNode.id == 'menu') {
+                return ary;
+            }
+            var aEle = _this.getPrev(ulEle);
+            _this.getMenu(aEle, ary);
+            return ary;
+        },
+
+        getParents: function (target, parentsTag) {
+            // 获取指定tag的上级元素，不限于父级
+            var p = target.parentNode;
+            while (p.tagName != parentsTag.toUpperCase()) {
+                p = p.parentNode;
+            }
+            return p;
+        },
+
+        getPrev: function (target) {
+            // 获取当前元素的前兄弟元素
+            var prev = target.previousSibling;
+            while (prev.nodeType != 1) {
+                prev = prev.previousSibling;
+            }
+            return prev;
+        },
+        appendEle: function (source, text, tagName) {
+            if (!source || !text || !tagName) {
+                throw error('append error, no arguments');
+            }
+            var ele = document.createElement(tagName.toLowerCase());
+            ele.innerHTML = text;
+            source.append(ele);
+        }
+    };
+    //    menu1.generator();
+
+</script>
+
+<script>
+    var menu2 = {
+        generator: function () {
+            var _this = this;
+            var menu = document.getElementById('menu');
+            menu.onclick = function (e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                if (target.tagName != 'A') return;
+                var id = target.getAttribute('data-id');
+                var labelText = target.innerHTML;
+                var parentId = target.getAttribute('data-parentId');
+                _this.getMenu(id, labelText, parentId);
+            }
+        },
+        getMenu: function(){
+
+        }
+    }
+</script>
+</body>
+</html>

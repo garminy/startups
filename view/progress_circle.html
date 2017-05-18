@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/progress_circle/style.css">
+</head>
+<body>
+<!--<div class="progress_wrapper loading">-->
+<!--<div class="wrapper right">-->
+<!--<div class="progress right_circle"></div>-->
+<!--</div>-->
+<!--<div class="wrapper left">-->
+<!--<div class="progress left_circle"></div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<br>
+<br>
+<br>
+
+<div class="progress_circle">
+    <div class="progress_wrapper">
+        <div id="progress">
+            <div class="wrapper right">
+                <div class="progress right_circle" id="right_circle"></div>
+            </div>
+            <div class="wrapper left">
+                <div class="progress left_circle" id="left_circle"></div>
+            </div>
+        </div>
+        <div class="percentage" id="value"></div>
+    </div>
+
+    <form>
+        <label for="">输入百分比</label>
+        <input type="text" id="percentage">%
+        <!--<span class="help_block">输入 0 - 100 间的数字</span>-->
+        <div class="btn">
+            <span id="submit">确定</span>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    var progressEle = document.getElementById('progress');
+    var submit = document.getElementById('submit');
+    var percentage = document.getElementById("percentage");
+
+
+    var rCircle = document.getElementById("right_circle");
+    var lCircle = document.getElementById("left_circle");
+    submit.onclick = function () {
+        var value = parseFloat(percentage.value);
+        if (isNaN(value)) {
+            alert('请输入0-100间的数字');
+            return false;
+        }
+        var result;
+        value = value >= 100 ? 100 : value;
+        value = value <= 0 ? 0 : value;
+        if (value <= 50) {
+            progressEle.className = 'lt_half';
+            result = -135 + (value / 100) * 360;
+            rCircle.style.transform = "rotate(" + result + "deg)";
+            rCircle.style.webkitTransform = "rotate(" + result + "deg)";
+            lCircle.style.transform = "rotate(-135deg)";
+            lCircle.style.webkitTransform = "rotate(-135deg)";
+        } else {
+            progressEle.className = 'gt_half';
+            result = -135 + (value - 50) / 100 * 360;
+            rCircle.style.transform = "rotate(45deg)";
+            rCircle.style.webkitTransform = "rotate(45deg)";
+            lCircle.style.transform = "rotate(" + result + "deg)";
+            lCircle.style.webkitTransform = "rotate(" + result + "deg)";
+        }
+    }
+</script>
+
+
+</body>
+</html>

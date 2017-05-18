@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.book {
+  width: 1000px;
+  height: 570px;
+  background: url(../../public/images/book/bg.png) repeat-y center;
+  border: 1px solid #7a6454;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .4);
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -285px 0 0 -500px;
+  .book_content_bg {
+    height: 100%;
+    width: 46.5%;
+    background: url(../../public/images/book/bg2.png) repeat center;
+    border: 1px solid #816e62;
+    position: relative;
+    .book_paple {
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      box-shadow: 0 0 5px 0 rgba(71, 30, 0, 0.5);
+      &.p1 {
+        width: 12px;
+        background: #e2dcd8;
+      }
+      &.p2 {
+        width: 8px;
+        background: #e8e4e2;
+      }
+      &.p3 {
+        width: 4px;
+        background: #edeae9;
+      }
+    }
+    &.fl {
+      float: left;
+      .p1 {
+        left: 28px;
+      }
+      .p2 {
+        left: 32px;
+      }
+      .p3 {
+        left: 36px;
+      }
+    }
+    &.fr {
+      float: right;
+      .p1 {
+        right: 28px;
+      }
+      .p2 {
+        right: 32px;
+      }
+      .p3 {
+        right: 36px;
+      }
+    }
+  }
+  .box {
+    position: absolute;
+    top: 20px;
+    bottom: 18px;
+    left: 50px;
+    right: 50px;
+    .first_paper, .paper {
+      height: 100%;
+      width: 49.2%;
+      position: absolute;
+      transition: all .6s;
+      -webkit-transition: all .6s;
+      transform-origin: -1.6% center;
+      -webkit-transform-origin: -1.6% center;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      .book_paper_left, .book_paper_right{
+        background: url(../../public/images/book/page_bg.png) repeat-y center;
+        background-size: 100% auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        &.book_paper_right{
+          transform: rotateY(180deg) translateZ(2px);
+          -webkit-transform: rotateY(180deg) translateZ(2px);
+        }
+      }
+      .page {
+        text-align: center;
+        font-size: 16px;
+        color: #9a9a9a;
+        padding-top: 20px;
+        position: absolute;
+        width: 100%;
+        bottom: 20px;
+
+      }
+    }
+    .first_paper {
+      left: 0;
+    }
+    .paper {
+      right: 0;
+    }
+  }
+  .book_ring {
+    position: absolute;
+    width: 50px;
+    z-index: 999;
+    left: 50%;
+    margin-left: -25px;
+    .ring {
+      height: 20px;
+      width: 100%;
+      background: url(../../public/images/book/ring.png) no-repeat center;
+      position: absolute;
+      left: 0;
+      &.ring1 {
+        top: 0;
+      }
+      &.ring2 {
+        top: 30px;
+      }
+      &.ring3 {
+        top: 60px;
+      }
+    }
+    &.top {
+      top: 80px;
+    }
+    &.bottom {
+      bottom: 150px;
+    }
+  }
+}

@@ -2,50 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
-    <link rel="stylesheet" href="stylesheet/share/reset.css"/>
-    <link rel="stylesheet" href="stylesheet/home/banner.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheet/home/index.css">
+    <title>Document</title>
 </head>
 <body>
-<div id="banner-area">
-    <div id="div1">
+<div class="load_page" id="loading">
+    <div class="side_top">
         <div class="bg"></div>
-        <div class="banner-unit">
-            <div class="content">111</div>
-        </div>
-        <div class="banner-unit">
-            <div class="content">222</div>
-        </div>
-        <div class="banner-unit">
-            <div class="content">333</div>
-        </div>
-        <div class="banner-unit">
-            <div class="content">444</div>
-        </div>
-        <div class="banner-unit">
-            <div class="content">555</div>
-        </div>
-        <div class="banner-unit">
-            <div class="content">666 666 666 666 666</div>
+        <!--<div class="title">我的主页</div>-->
+        <div id="go_in" class="button">进入</div>
+    </div>
+    <div class="side_bottom">
+        <div class="bg"></div>
+    </div>
+    <div class="loading_line" id="loading_line"></div>
+
+</div>
+<div class="home_main" id="home">
+    <div class="bg"></div>
+    <div class="bizcard show" id="bizcard">
+        <div class="info">
+            <div class="avatar">
+                <!--<img src="http://www.005.tv/uploads/allimg/161129/162P42324-6.jpg" alt="">-->
+                <img src="public/images/home/me.jpeg" alt="">
+            </div>
+            <div class="name">℡ME⒉⒋к熋</div>
+            <ul>
+                <!--<li>2年前端</li>-->
+                <li>jm7427631@163.com</li>
+            </ul>
         </div>
     </div>
-
-    <ul class="btn">
-        <li id="prev">&lt;</li>
-        <li id="next">&gt;</li>
-    </ul>
+    <div class="startup_model">
+        <div class="container">
+            <div class="model_title"> DEMOS</div>
+            <div id="startup_list">
+                <!--<div class="section">-->
+                <!--<a>-->
+                <!--<div class="startup_option">-->
+                <!--<div class="cover">-->
+                <!--<img src="" alt="">-->
+                <!--</div>-->
+                <!--<div class="title">title title</div>-->
+                <!--<div class="desc">desc desc</div>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--</div>-->
+            </div>
+            <div id="load_more_startup"></div>
+        </div>
+    </div>
 </div>
 
-
-<div id="list">
-    fdsafasfasfjhgfdsdfghjk
-    <br> fdsafasfasfjhgfdsdfghjk
-    <br> fdsafasfasfjhgfdsdfghjk
-    <br> fdsafasfasfjhgfdsdfghjk
-    <br> fdsafasfasfjhgfdsdfghjk
-    <br> fdsafasfasfjhgfdsdfghjk
-    <br>
-</div>
-<script src="javascript/components/home/banner.js"></script>
+<script src="javascript/libs/toolAjax.js"></script>
+<script src="javascript/components/home/animate.js"></script>
 </body>
 </html>

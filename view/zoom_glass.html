@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>放大镜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: top;
+        }
+
+        .container {
+            width: 1000px;
+            padding: 100px;
+            margin: 0 auto;
+        }
+
+        .content {
+            width: 200px;
+            position: absolute;
+        }
+
+        .content img.thumb {
+            width: 100%;
+        }
+        .content .big{
+            position: absolute;
+            left: 120%;
+            top: 0;
+            background-repeat: no-repeat;
+            background-color: #eee;
+        }
+
+        .focu {
+            position: absolute;
+            background: #fff;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content" id="content">
+        <img class="thumb" src="../public/images/bg3_1.jpg" alt="">
+    </div>
+</div>
+<script src="../javascript/components/zoom_glass/index.js"></script>
+</body>
+</html>

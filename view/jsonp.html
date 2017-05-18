@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="../javascript/libs/jquery.min.js"></script>
+<script>
+    var qsData = {
+        'wd': 'a',
+        'json': '1',
+        'p': '3',
+        'sid': '1444_21095_22037_21672',
+        'req': '2',
+        'csor': '1',
+        'cb': 'getData',
+        '_': '1488532984556'
+    };
+    $.ajax({
+        async: false,
+        url: 'https://www.baidu.com/su',
+        type: 'GET',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data: qsData,
+        timeout: 5000,
+        success: function (json) {
+            console.log('success');
+        },
+        error: function (json) {
+            console.log('error');
+        }
+
+    })
+
+    function getData(json) {
+        console.log(json);
+    }
+
+</script>
+</body>
+</html>

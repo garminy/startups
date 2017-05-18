@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet/table/table.css">
+    <style>
+        .active {
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="title"> 原生JS 实现 ajax 分页器 </div>
+    <table id="table">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <div id="pagination">
+        <div class="link" id="prev">prev</div>
+        <div class="link" id="first">first</div>
+        <div id="page_num"></div>
+        <div class="link" id="last">last</div>
+        <div class="link" id="next">next</div>
+        <div class="goto">跳转到第<input type="text" id="goToPage">页
+            <button>确定</button>
+        </div>
+    </div>
+</div>
+<script src="../javascript/libs/toolAjax.js"></script>
+<script>
+    var toolPage = {
+        init: function (data) {
+            this.table = document.getElementById('table');
+            this.tBody = this.table.tBodies[0];
+            this.tHead = this.table.tHead;
+
+            this.current_page = 1; //当前显示第几页
+            this.page_amount = 10; //每页显示的数量
+            this.total = data.length;  //总条数
+            this.total_page = Math.ceil(this.total / this.page_amount); //总页数
+
+            this.dataIndex = {}; //{name: 0, sex:1, score: 2)
+
+
+            // 表头
+            var fragment = document.createDocumentFragment();
+            var tr = document.createElement('tr');
+            var data_index = 0;
+            for (key in data[0]) {
+                var th = document.createElement('th');
+                th.innerHTML = key;
+                tr.appendChild(th);
+
+                //处理this.dataIndex
+                this.dataIndex[key] = data_index;
+                data_index++;
+            }
+            fragment.appendChild(tr);
+            this.tHead.appendChild(fragment);
+
+
+        },
+        // 表格
+
+        loadData: function (data, current_page, page_amount) {
+            this.current_page = current_page || this.current_page;
+            this.page_amount = page_amount || this.page_amount;
+            this.total_page = Math.ceil(this.total / this.page_amount);
+
+            var start = (this.current_page - 1) * this.page_amount;
+            var end = this.current_page * this.page_amount - 1;
+            var fragment = document.createDocumentFragment();
+            for (var i = start; i <= end; i++) {
+                var tr = document.createElement('tr');
+                var arr = [];
+                for (key in data[i]) {
+                    var value = key == 'sex' ? (data[i][key] == 1 ? '男' : '女') : data[i][key];
+                    arr[this.dataIndex[key]] = '<td>' + value + '</td>';
+                }
+                tr.innerHTML = arr.join('');
+                fragment.appendChild(tr);
+            }
+            this.tBody.innerHTML = '';
+            this.tBody.appendChild(fragment);
+        },
+
+        //pagination
+        loadPage: function () {
+            var page_num = document.getElementById('page_num');
+            var fragment = document.createDocumentFragment();
+            for (var i = 0; i < this.total_page; i++) {
+                var span = document.createElement('span');
+                span.innerHTML = i + 1;
+                fragment.appendChild(span);
+            }
+            page_num.appendChild(fragment);
+
+            this.selectedPage();
+        },
+        selectedPage: function () {
+            var pageEles = document.getElementById('page_num').getElementsByTagName('span');
+            for (var i = 0; i < this.total_page; i++) {
+                pageEles[i].className = (this.current_page - 1 == i) ? 'active' : '';
+            }
+        },
+        goToNumber: function (value) {
+            if (!!value && !isNaN(value) && !/^\d*[e|E]\d*$/.test(value)) {
+                value = parseInt(value);
+                if (value > this.total_page || value <= 0) {
+                    this.alertFormat('不存在的页');
+                    return;
+                }
+                this.current_page = value;
+            } else {
+                this.alertFormat('请输入数字');
+                return;
+            }
+        },
+        alertFormat: function (text) {
+            alert(text);
+        }
+    };
+
+    toolAjax.ajax('../public/json/data.json', function (data) {
+        console.log(data);
+        toolPage.init(data);
+        toolPage.loadData(data);
+        toolPage.loadPage();
+
+        pagination.onclick = function (e) {
+            var _this = toolPage;
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.id == 'prev') {
+                _this.current_page = (_this.current_page > 1) ? parseInt(_this.current_page) - 1 : _this.current_page
+            } else if (target.id == 'first') {
+                _this.current_page = 1;
+
+            } else if (target.id == 'last') {
+                _this.current_page = _this.total_page;
+
+            } else if (target.id == 'next') {
+                _this.current_page = (_this.current_page < _this.total_page) ? parseInt(_this.current_page) + 1 : _this.current_page
+
+            } else if (target.tagName.toLowerCase() == 'span') {
+                _this.current_page = target.innerHTML;
+            }
+            else if (target.tagName.toLowerCase() == 'button') {
+                _this.goToNumber(goToPage.value);
+            }
+
+            console.log(_this.current_page);
+            toolPage.loadData(data, this.current_page);
+            toolPage.selectedPage();
+        };
+
+        document.onkeyup = function (e) {
+            e = e || window.event;
+            if (e && e.keyCode == 13) {
+                toolPage.goToNumber(goToPage.value);
+                toolPage.loadData(data, this.current_page);
+                toolPage.selectedPage();
+            }
+        }
+    });
+
+
+    /*
+     * 1. ajax原理  to_json方法
+     * 2. document.createDocumentFragment() 文档碎片
+     * 3. e.target 事件委托
+     * */
+</script>
+</body>
+</html>
+
+
+
+
