@@ -108,7 +108,7 @@
   padding-bottom: 50px;
   background: #f7f4fd;
   overflow: hidden;
-  .section a .startup_option .cover{
+  .section a .startup_option .cover {
     -webkit-transition: all .4s ease-in .4s;
     -moz-transition: all .4s ease-in .4s;
     -ms-transition: all .4s ease-in .4s;
@@ -129,6 +129,9 @@
 @media screen and (orientation: landscape) {
   .startup_model {
     padding-left: 25vw;
+    #startup_list {
+      text-align: left;
+    }
     @include pc_startup;
   }
 }

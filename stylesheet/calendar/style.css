@@ -1,0 +1,27 @@
+#calendar .header {
+  position: relative;
+  display: inline-block; }
+  #calendar .header .current-month {
+    text-align: center; }
+  #calendar .header .prev-month {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    cursor: pointer; }
+  #calendar .header .next-month {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer; }
+  #calendar .header .day-names .day-name {
+    text-align: center;
+    width: 50px;
+    line-height: 30px;
+    display: inline-block; }
+#calendar .list-box .date-week .date-value {
+  text-align: center;
+  width: 50px;
+  line-height: 30px;
+  display: inline-block; }
+
+/*# sourceMappingURL=style.css.map */

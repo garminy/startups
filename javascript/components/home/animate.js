@@ -103,13 +103,35 @@ var homeJs = {
                 }
             }
         })
+    },
+    promptBox: function (str, ele, type) {
+        var _this = this;
+        var prompt = document.createElement('div');
+        prompt.className = 'prompt';
+        prompt.innerHTML = str;
+        document.body.appendChild(prompt);
+        document.getElementsByClassName('prompt')[0].className += ' show';
+
+        window.timer1 = setTimeout(function () {
+            document.getElementsByClassName('prompt')[0].className = 'prompt';
+        }, 1000);
+        window.timer2 = setTimeout(function () {
+            var eleList = document.getElementsByClassName('prompt');
+            for (var i = eleList.length - 1; i >= 0; i--) {
+                console.log(i);
+                document.body.removeChild(eleList[i]);
+            }
+            ele['on' + type] = function () {
+                _this.promptBox(str, ele, type);
+            }
+        }, 1300)
     }
 };
 
 var ary = [
     {
         imgRoute: 'public/images/home/',
-        imgAry: ['bg_flower.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg']
+        imgAry: ['bg_flower.jpg', 'loading_bg_bottom.jpg', 'loading_bg_top.jpg', 'me.jpeg']
     }, {
         imgRoute: 'public/images/landscape_img/',
         imgAry: ['img0.jpg', 'img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'img7.jpg']
@@ -118,7 +140,7 @@ var ary = [
         imgAry: ['img0.jpeg', 'img1.jpeg', 'img2.jpeg', 'img3.jpeg', 'img4.jpeg', 'img5.jpeg', 'img6.jpeg']
     }
 ];
-homeJs.loadImg(ary, 18);
+homeJs.loadImg(ary, 19);
 
 
 // window.timer = setTimeout(function () {
@@ -132,4 +154,13 @@ window.onresize = function () {
     window.timer = setTimeout(function () {
         homeJs.initAnimate();
     }, 400);
+}
+
+
+var bgEle = document.getElementById('home').getElementsByClassName('bg')[0];
+bgEle.onclick = function () {
+    this.onclick = function () {
+    };
+    homeJs.promptBox('请使用pc访问', this, 'click');
+
 }

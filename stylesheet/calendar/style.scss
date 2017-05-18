@@ -1,0 +1,39 @@
+#calendar {
+  .header {
+    position: relative;
+    display: inline-block;
+    .current-month {
+      text-align: center;
+    }
+    .prev-month {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      cursor: pointer;
+    }
+    .next-month {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      cursor: pointer;
+    }
+    .day-names {
+      .day-name {
+        text-align: center;
+        width: 50px;
+        line-height: 30px;
+        display: inline-block;
+      }
+    }
+  }
+  .list-box {
+    .date-week {
+      .date-value {
+        text-align: center;
+        width: 50px;
+        line-height: 30px;
+        display: inline-block;
+      }
+    }
+  }
+}

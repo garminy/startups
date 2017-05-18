@@ -26,21 +26,55 @@
   overflow: hidden;
   max-width: 100%;
   .bg {
-    background: url(../../public/images/home/bg_flower.jpg) no-repeat;
-    background-size: cover;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    filter: blur(10px);
-    -webkit-filter: blur(6px);
+    z-index: 10;
   }
   .model_title {
     text-align: center;
     position: relative;
     color: #fff;
     text-shadow: 2px 2px 4px #895cf2;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .home_main .bg {
+    display: none;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .home_main .bg {
+    display: block;
+  }
+  .prompt {
+    padding: 0 1.5em;
+    line-height: 2.5em;
+    color: #fff;
+    background: rgba(0, 0, 0, .4);
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    &.show {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
   }
 }
 
